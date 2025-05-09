@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder
-from sksurv.ensemble import RandomSurvivalForest
+from sksurv.ensemble import RandomSurvivalForest,ExtraSurvivalTrees
 from sksurv.metrics import concordance_index_ipcw
 from sksurv.util import Surv
 from sklearn.model_selection import train_test_split
@@ -94,11 +94,11 @@ def evaluate_ipcw(y_train, y_val, pred_train, pred_val, name):
     print(f"[{name}] IPCW C-index (val)  : {cidx_val:.4f}")
 
 # --- Train RSF ---
-rsf = RandomSurvivalForest(
-    n_estimators=300,
-    min_samples_split=5,
-    min_samples_leaf=10,
+rsf = ExtraSurvivalTrees(
+    n_estimators=204,
     max_features="sqrt",
+    min_samples_split=3,
+    min_samples_leaf=3,
     n_jobs=-1,
     random_state=42
 )
@@ -185,6 +185,6 @@ submission = pd.DataFrame({
     "ID": clinical_test["ID"],
     "risk_score": risk_scores
 })
-submission_dir = "../submissions/submission_model_4_pathways.csv"
+submission_dir = "../submissions/submission_28_04.csv"
 submission.to_csv(submission_dir, index=False)
 print(f"[INFO] Submission saved as {submission_dir}")
