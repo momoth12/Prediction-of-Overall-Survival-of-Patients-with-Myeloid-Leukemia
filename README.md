@@ -80,16 +80,19 @@ pip install -r requirements.txt
     Use the trained model to generate predictions:  
     ```bash  
     python src/predict.py  
-    ```  
+    3. **Generating Predictions**:  
+        Navigate to the `models/` directory and run the desired model script:  
+        ```bash  
+        cd models  
+        python model_name.py  
+        ```  
+        This will generate a submission file in the required format.  
 
 4. **Submission**:  
     Ensure your predictions are in the required format and submit the CSV file.  
 
-### Evaluation  
-The model's performance is evaluated using the **IPCW-C-index** metric. Refer to the `notebooks/evaluation.ipynb` for details on how to compute this metric.  
+
 
 ### Contribution  
 Feel free to contribute by submitting pull requests or reporting issues.  
 
-### License  
-This project is licensed under the MIT License. See the `LICENSE` file for details.  
