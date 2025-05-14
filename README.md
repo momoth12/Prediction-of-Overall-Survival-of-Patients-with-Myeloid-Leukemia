@@ -52,7 +52,7 @@ The benchmark score is based on the Cox model.
 ### Prerequisites  
 To run the code and reproduce the results, you will need:  
 - Python 3.8 or higher.  
-- Required libraries: `pandas`, `numpy`, `scikit-learn`, `lightgbm`, `lifelines`, and `matplotlib`.  
+- Required libraries: `pandas`, `numpy`, `scikit-survival`, `lightgbm`, `lifelines`, and `matplotlib`.  
 
 Install the dependencies using:  
 ```bash  
@@ -70,17 +70,9 @@ pip install -r requirements.txt
 1. **Data Preparation**:  
     Unzip the `x_train.zip` and `x_test.zip` files into the `data/` directory.  
 
-2. **Training the Model**:  
-    Run the training script:  
-    ```bash  
-    python src/train_model.py  
-    ```  
 
-3. **Generating Predictions**:  
-    Use the trained model to generate predictions:  
-    ```bash  
-    python src/predict.py  
-    3. **Generating Predictions**:  
+2. **Training models and Generating Predictions**:  
+    
         Navigate to the `models/` directory and run the desired model script:  
         ```bash  
         cd models  
@@ -88,7 +80,7 @@ pip install -r requirements.txt
         ```  
         This will generate a submission file in the required format.  
 
-4. **Submission**:  
+3. **Submission**:  
     Ensure your predictions are in the required format and submit the CSV file.  
 
 
